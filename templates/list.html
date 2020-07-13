@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+	</head>
+	
+	<body>
+		<h1><big>ユーザ一覧</big></h1>
+		<ul>
+			{% for i in userlist %}
+				<li>{{ i }}</li>
+			{% endfor %}
+		</ul>
+	</body>
+</html>

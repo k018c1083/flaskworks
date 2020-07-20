@@ -1,17 +1,15 @@
-from flask import Flask,render_template
+from flask import Flask,render_template,request
 
 app = Flask(__name__)
-userlist = []
-@app.route('/list/')
 
-def list():
-	return render_template('list.html',userlist=userlist)
+@app.route('/')
+def index():
+	return render_template('index.html')
 
-@app.route('/user/<username>/')
-	
-def tuika(username):
-	userlist.append(username)
-	return render_template('tuika.html',message=username)
+@app.route('/send',methods=['POST'])
+def send():
+	msg= request.form.get('msg')
+	return render_template('receive.html',message=msg)
 	
 if __name__ == '__main__':
 	app.debug = True
